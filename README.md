@@ -15,7 +15,7 @@
 ## 2016
 
 * Working with UNIX Process Chapter 6/7 at OneBox Study Group (2016/03/05)
-
+* Working with UNIX Process Chapter 8/9 at OneBox Study Group (2016/03/12)
 
 
 :tea: talks (ja)
@@ -33,3 +33,4 @@
 ## 2016
 
 * なるほどUNIX 6/7章 at OneBox社内勉強会 (2016/03/05)
+* なるほどUNIX 8/9章 at OneBox社内勉強会 (2016/03/12)
