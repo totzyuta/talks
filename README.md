@@ -4,6 +4,7 @@
 
 ## 2015
 
+* Me with Coffee at Gyaku-kyujin
 * The Introduction of Git/GitHub at OTL Coding Cafe (2015/06/24)
 * Let's enjoy CLI life at OTL Coding Cafe (2015/2015/07/15)
 * Graduation from Vimmer Kindergarten at OTL Coding Cafe (2015/07/22)
@@ -22,6 +23,7 @@
 
 ## 2015
 
+* 珈琲と僕 - 逆求人フェスティバル
 * Git/GitHub入門 - 楽しいチーム開発 at OTL Coding Cafe (2015/06/24)
 * たのしいたーみなる at OTL Coding Cafe (2015/2015/07/15)
 * Vimmer幼稚園 - 一歩大人のVim入門 at OTL Coding Cafe (2015/07/22)
