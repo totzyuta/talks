@@ -1,12 +1,12 @@
 # talks
 
-:coffee: talks (en)
+## :coffee: talks (en)
 
-## 2014
+### 2014
 
 * Pursuing The Dream with The Magick Dragon in Uganda (2014/02/22)
 
-## 2015
+### 2015
 
 * Me with Coffee at Gyaku-kyujin
 * The Introduction of Git/GitHub at OTL Coding Cafe (2015/06/24)
@@ -17,20 +17,20 @@
 * Reading Rails - ActiveRecord::Base / ActiveSupport::Concerns at Finc Study Group (2015/12/04)
 * Instructions and Assembly - Computer Architecture at Finc Study Group (2015/11/12)
 
-## 2016
+### 2016
 
 * Working with UNIX Process Chapter 6/7 at OneBox Study Group (2016/03/05)
 * Working with UNIX Process Chapter 8/9 at OneBox Study Group (2016/03/12)
 * How to update Xcode in Uganda at dots. students' group (2016/04/19)
 
 
-:tea: talks (ja)
+## :tea: talks (ja)
 
-## 2014
+### 2014
 
 * 魔法の竜と、夢を追え！ in Uganda (2014/02/22)
 
-## 2015
+### 2015
 
 * 珈琲と僕 - 逆求人フェスティバル
 * Git/GitHub入門 - 楽しいチーム開発 at OTL Coding Cafe (2015/06/24)
@@ -41,7 +41,7 @@
 * 読んで理解するActiveRecord::BaseとActiveSupport::Concerns at Finc勉強会 (2015/12/04)
 * 命令セットアーキテクチャ - コンピュータアーキテクチャ at Finc勉強会 (2015/11/12)
 
-## 2016
+### 2016
 
 * なるほどUNIX 6/7章 at OneBox社内勉強会 (2016/03/05)
 * なるほどUNIX 8/9章 at OneBox社内勉強会 (2016/03/12)
