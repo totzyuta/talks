@@ -2,6 +2,10 @@
 
 :coffee: talks (en)
 
+## 2014
+
+* Pursuing The Dream with The Magick Dragon in Uganda (2014/02/22)
+
 ## 2015
 
 * Me with Coffee at Gyaku-kyujin
@@ -21,6 +25,10 @@
 
 
 :tea: talks (ja)
+
+## 2014
+
+* 魔法の竜と、夢を追え！ in Uganda (2014/02/22)
 
 ## 2015
 
