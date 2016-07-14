@@ -17,6 +17,13 @@ author
 トリマーと飼い主さまをつなげる
 出張トリミングサービス
 
+# 会社紹介
+
+![](images/onebox-logo.jpg)
+
+トリマーと飼い主さまをつなげる
+出張トリミングサービス
+
 >Ruby/Railsエンジニアの方
 >フロントエンドエンジニアの方
 >一緒につくりませんか！！
@@ -38,43 +45,74 @@ author
 
 # 開発について
 
-* Ruby, Railsは最新版を追従
 * bundle updateは週に3回
-* 勉強会開催
 * もちろんテストも書く
+* 面白い・好きだという理由を重視して技術選定
+* 社内勉強会
+  * 読書会
+  * gem reading
 
 # 今日やりたいこと
 
-理論から始めてニューラルネットワークを使った学習をするバックプロパゲーションのプログラムを試してみたい
+ディープラーニング！！！！！
+機械学習！！！！！
+人工知能！！！！！
+Alpha 碁！！！！！
 
-※ 機械学習入門者のスライドです (間違いなど多々あると思われます)
+# 今日やりたいこと
 
-# まずは...
+Rubyの世界にMachine Learningをやってる人が少ない...
 
-その準備としてまずバックプロパゲーションが何なのかということから振り返ってみたいと思います。
+# 今日やりたいこと
+
+ニューラルネットワークの理論から始めて、バックプロパゲーションな学習をするプログラムを試してみることで、*RubyistにMachine Learningの門を開けてほしい*
+
+※ 機械学習入門者向けのスライドだし、機械学習入門者のスライドです (PRMLはまだ読めていません...)
+
+# レジュメ
+
+1. バックプロパゲーション(BP)について学ぼう
+  * BPを学ぶために必要なもろもろ
+2. BPを用いているプログラムを使ってみる
+  * Iris Data Setの学習・識別
+  * 数値の画像識別プログラム
+
+# バックプロパゲーションまでの道のり
+
+* ニューロセルとは？
+* ニューラルネットワークとは？
+* パーセプトロンとは？
+* *BPとは？*
+
+シンプルな概念を組み合わせてどんどん便利にしてく歴史を雑に学びます
 
 # バックプロパゲーションとは何か？
 
-TODO: ひとことでまとめる
+ひとことでいうと...
 
-そのためには、ニューラルネットワークについてまず知らなければいけない。
+ニューラルネットワークにおけるコスト関数の勾配を高速に計算するアルゴリズム
 
-ニューラルネットワークとは、ニューロセルを複数結合した情報処理機構である。
+# バックプロパゲーションとは何か？
+
+*ニューラルネットワークの限界に挑戦したい*
 
 # 「ニューロセル」…？？
 
+ニューラルネットワークは、ニューロセルの組み合わせです。
+
+なので、まずは*ニューロセル*について。
 
 # ニューロセルとは
 
 * Pittsさん(数学)とMcCullochさん(神経生理学)が1942年に提案
-* x * y
 
 ![](images/cell1.png)
 
 # ニューロセルとは②
 
 * ニューロセルはニューラルネットワークにおけるノードに相当する。
-* ニューロセル自体は、複数の入力に対し、それぞれに重みをかけたものを足しあわせ、閾値を引いたものを出力とする機構であり、これは神経細胞をモデルにしているらしい。
+* ニューロセル自体は、複数の入力に対し、それぞれに重みをかけたものを足しあわせ、閾値を引いたものを出力とする機構
+* => 神経細胞をモデルにしている
 
 # ニューロセルとは③
 
@@ -84,21 +122,39 @@ TODO: ひとことでまとめる
 u = Σ (x_i * w_i) - v
 ```
 
+![](images/cell1.png)
+
 # ニューロセルとは④
 
-* このuを出力関数に突っ込んだ値が出力となる。人間が判断するならここまででもいいような気がするけど、これをコンピュータに理解させやすく変換したい (引用: http://sacraya.610t.org/Press/No18/neuro/)
+```
+u = Σ (x_i * w_i) - v
+```
+
+* このuを出力関数に突っ込んだ値が出力となる
+* 人間が判断するならここまででもいいような気がするけど、これをコンピュータに理解させやすく変換したい
 
 
 # ニューロセルとは⑤
+
+そこで出力関数ってのを使う
 
 ```
 z = f(u)
 ```
 
-出力関数には種類があり、テップ関数とシグモイド関数がよく用いられる。
+出力関数には種類があり、ステップ関数とシグモイド関数がよく用いられる。
 
-* ステップ関数 ... uが0正なら1, 負なら0
+* ステップ関数 ... uが正なら1, 負なら0
 * シグモイド関数 ... f(u) = 1/(1+e^-u)で表される
+
+# ステップ関数
+
+![](images/step.JPG)
+
+# シグモイド関数
+
+![](images/sigmoid.jpg)
+
 
 # ニューロセルとは⑥
 
@@ -212,10 +268,14 @@ iris data setのデータを読み込んで学習させてみます
 7.7,2.6,6.9,2.3,Iris-virginica
 ```
 
+# Iris Data Set
+
+![](images/iris-data.png)
+
 # 実行結果
 
 ```
-$ ruby examples/iris.rb                                                                                                              
+$ ruby examples/iris.rb
 Testing the untrained network...
 Untrained classification success: 16, failure: 34 (classification error: 68%, mse: 28.17%)
 
@@ -242,6 +302,268 @@ Trained classification success: 48, failure: 2 (classification error: 4%, mse: 1
 識別率３倍 ✊ ✊
 
 
+# 数値画像識別プログラム
+
+4 x 4 の画像データの識別プログラムをつくってみます
+
+```
+https://github.com/totzyuta/neural-net-ruby/
+```
+
+# 学習データセット
+
+![](images/image-data.png)
+
+# 学習データセット
+
+number_image.data
+
+```
+0,0,1,0,0,1,0,0,0,1,0,0,0,1,0,0,1
+0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,1
+0,1,1,0,1,0,0,1,1,0,0,1,0,1,1,0,0
+1,1,1,1,1,0,0,1,1,0,0,1,1,1,1,1,0
+```
+
+# 学習データセット
+
+number_image.data
+
+```
+0,0,1,0,0,1,0,0,0,1,0,0,0,1,0,0,1
+0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,1
+0,1,1,0,1,0,0,1,1,0,0,1,0,1,1,0,0
+1,1,1,1,1,0,0,1,1,0,0,1,1,1,1,1,0
+```
+
+![](images/image-data.png)
+
+
+# 数値判定プログラムを書く
+
+`number_classifier.rb`を作成・実行。
+
+データを食わせてtrainします。
+
+```
+$ ruby examples/number_classifier.rb
+
+Training the network...
+
+Done training the network: 4 iterations, 0.4% mse, 0.0s
+```
+
+# 未知画像データの数値判定
+
+次に、number_image.rbに以下を加え、学習させたネットワークでテストデータの認識を行わせてみます。
+
+```
+puts "\nTesting the trained network..."
+
+success, failure, avg_mse = run_test.(nn, x_test, y_test)
+
+puts <<"EOS"
+Trained classification
+success: #{success},
+failure: #{failure}
+(classification error: #{error_rate.(failure, x_test.length)}%,
+                mse: #{(avg_mse * 100).round(2)}%)
+EOS
+```
+
+# 未知画像データの数値判定
+
+![](images/unknwon-num-data.png)
+
+```
+0,0,1,0,0,1,0,1,0,1,0,1,0,1,1,0,0
+```
+
+0を期待する未知データ
+
+# 未知画像データの数値判定
+
+実行してみる
+
+```
+$ ruby examples/number_image.rb
+
+Training the network...
+
+Done training the network: 5 iterations, 0.5% mse, 0.0s
+
+Testing the trained network...
+Trained classification
+success: 1,
+failure: 0
+(classification error: 0%, mse: 0.03%)
+```
+
+# 未知画像データの数値判定
+
+実行してみる
+
+```
+$ ruby examples/number_image.rb
+
+Training the network...
+
+Done training the network: 5 iterations, 0.5% mse, 0.0s
+
+Testing the trained network...
+Trained classification
+success: 1,
+failure: 0
+(classification error: 0%, mse: 0.03%)
+```
+
+うまく識別できました！ :joy:
+
+
+# 余談
+
+NN法でも同じような識別をやってみました。
+
+```
+https://github.com/totzYuta/book_speaking-system
+```
+
+NN法は与えられたN次元ベクトル x に対して１番距離が近いクラス（今回は単純に、プロトタイプのN次元ベクトル Pi のうちどれか）に分類するというシンプルな方法
+
+# 学習データセット
+
+```
+# Prototypes (Images of 0~4)
+p0 = [0,1,1,1,0, 1,0,0,0,1, 1,0,0,0,1, 1,0,0,0,1, 0,1,1,1,0]
+p1 = [0,0,1,0,0, 0,0,1,0,0, 0,0,1,0,0, 0,0,1,0,0, 0,0,1,0,0]
+p2 = [0,1,1,1,1, 1,0,0,1,0, 0,0,1,0,0, 0,1,0,0,0, 1,1,1,1,1]
+p3 = [0,1,1,1,0, 1,0,0,0,1, 0,0,1,1,0, 1,0,0,0,1, 0,1,1,1,0]
+p4 = [0,0,1,0,0, 0,1,0,0,0, 1,0,0,1,0, 1,1,1,1,1, 0,0,0,1,0]
+```
+
+# こんな感じ
+
+```
+Image:               Image:
+                     
+      ###                   #  
+     #   #                  #  
+     #   #                  #  
+     #   #                  #  
+      ###                   #  
+     
+Image:               Image:
+                     
+      ####                 ### 
+     #  #                 #   #
+       #                    ## 
+      #                   #   #
+     #####                 ### 
+
+Image:
+
+       #  
+      #   
+     #  # 
+     #####
+        # 
+```
+
+# 判定してみる
+
+```
+>>> image1 = Image([0,1,1,0,0, 1,1,0,0,0, 1,0,0,1,0, 1,1,0,1,1, 0,0,0,0,1])
+>>> image1.draw()
+
+Image:
+
+      ##  
+     ##   
+     #  # 
+     ## ##
+         #
+     
+>>> image1.classify()
+
+The number of image is 4
+```
+
+# 判定してみる②
+
+```
+>>> image1 = Image([0,0,0,1,0, 0,0,0,1,0, 0,0,0,1,0, 0,0,0,1,0, 0,0,0,1,0])
+>>> image1.draw()
+
+Image:
+
+        # 
+        # 
+        # 
+        # 
+        # 
+    
+ 
+>>> image1.classify()
+
+The number of image is 4
+```
+
+特徴抽出（ここだと画像上における文字の位置や大きさに依存しないような特徴の抽出）をちゃんと行っていないとかが大きな要因になってる
+
+
 # 学んだこと
 
-* 機械学習にRabbitはやめた方がいい
+* 機械学習の説明にRabbitは結構つらい(字を少なくするのむずい)
+* Rubyでも機械学習は(もちろん)できる。むしろみんな始めないとライブラリなど整ってこないので、Rubyで始めよう！
+* (でも実装してみて、numpy scipy matplotlibべんり)
+
+# @tdtds さんのブログ
+
+![](images/blog1.png)
+
+```
+RubyKaigi 2015(3日目) - ただの日記
+http://sho.tdiary.net/20151213.html
+```
+
+# まとめ
+
+*Rubyでも機械学習をもりあげよう！*
+
+
+# 参考書籍
+
+[1] 石井健一郎、上田修功、前田英作、村瀬洋 (1998) 『パターン認識』オーム社
+[2] 小高知宏 (2011) 『はじめての機械学習』オーム社
+[3] 荒木 雅弘 (2007) 『フリーソフトでつくる音声認識システム－パターン認識・機械学習の初歩から対話システムまで』森北出版
+
+# 参考記事
+
+```
+* [ニューラルネットワークとパーセプトロン](http://kazoo04.hatenablog.com/entry/agi-ac-15#fn-22de60d0) : かずーさん
+
+* [gbuesing/neural-net-ruby](https://github.com/gbuesing/neural-net-ruby)
+[バックプロパゲーション（誤差逆伝播法）の実行時間をRubyとPythonで比較してみました。](http://blog.yusugomori.com/post/21858253979/ruby-python)
+
+* [ニューラルネットワークで数字を認識するWebアプリを作る(python)](http://qiita.com/ginrou@github/items/07b52a8520efcaebce37)
+
+* [多層パーセプトロンによる関数近似](http://aidiary.hatenablog.com/entry/20140122/1390395760)
+
+* [Deep Learning (Python, C/C++, Java, Scala, Go)](https://github.com/yusugomori/DeepLearning)
+
+* [Simple Neural Network implementation in Ruby](http://www.rubylab.io/2015/03/18/simple-neural-network-implenentation-in-ruby/)
+
+* [[特集]ニューラルネットワークを研究に使う by 武藤武士/mutoh@OpenEdu.org](http://sacraya.610t.org/Press/No18/neuro/)
+
+* [誤差逆伝播法のノート](http://qiita.com/Ugo-Nama/items/04814a13c9ea84978a4c)
+
+* [逆伝播の仕組み](http://nnadl-ja.github.io/nnadl_site_ja/chap2.html)
+
+* [バックプロパゲーション](https://ja.wikipedia.org/wiki/バックプロパゲーション)
+
+* [【パターン認識】NN法で数字の画像から数値を識別する](http://totutotu.hatenablog.com/entry/【パターン認識】NN法で数字の画像から数値を識別する)
+
+* [totzYuta/book_speaking-sytem](https://github.com/totzYuta/book_speaking-system)
+
+* [k近傍法](https://ja.wikipedia.org/wiki/K%E8%BF%91%E5%82%8D%E6%B3%95)
+```
