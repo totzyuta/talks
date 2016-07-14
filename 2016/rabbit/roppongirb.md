@@ -9,6 +9,8 @@ author
 
 * 名前：戸塚佑太 @totzyuta
 * コーヒー係
+* ex. me:new
+* OneBox
 
 # 会社紹介
 
@@ -589,9 +591,9 @@ The number of image is 4
 
 # 学んだこと
 
-* 機械学習の説明にRabbitは結構つらい(字を少なくするのむずい)
 * Rubyでも機械学習は(もちろん)できる。むしろみんな始めないとライブラリなど整ってこないので、Rubyで始めよう！
 * (でも実装してみて、numpy scipy matplotlibべんり)
+* 機械学習の説明にRabbitは結構つらい(字を少なくするのむずい)
 
 # @tdtds さんのブログ
 
